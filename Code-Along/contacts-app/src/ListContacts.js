@@ -33,7 +33,7 @@ class ListContacts extends Component {
   // Render the UI
   render() { 
     const { query } = this.state
-    const { contacts, onDeleteContact } = this.props
+    const { contacts, onDeleteContact, onNavigate } = this.props
     // If contacts is empty
     const showingContacts = query === ''
       ? contacts // display all contacts
@@ -51,6 +51,12 @@ class ListContacts extends Component {
             value={query}
             onChange={event => this.updateQuery(event.target.value)}>
           </input>
+          <a // Change the page from ListContact to CreateContact
+            href='#create'
+            onClick={onNavigate}
+            className='add-contact'>
+              Add Contact
+          </a>
         </div>
         
         { // Displays a subtitle to clear search bar

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ListContacts from './ListContacts'
 import * as ContactsAPI from './utils/ContactsAPI'
+import CreateContact from './CreateContacts'
 
 class App extends Component {
   // Hard coded data
   state = {
-    contacts: []
+    contacts: [],
+    screen: 'list'
   }
 
   // Lifecycle Method
@@ -33,10 +35,24 @@ class App extends Component {
   // Render the UI
   render() {
     return (
-      <div className="App">
-        <ListContacts // Props
+      <div>
+        { // Display ListContacts Page
+        this.state.screen === 'list' && (
+          <ListContacts // Props
           contacts = {this.state.contacts}
-          onDeleteContact={this.removeContact}/>
+          onDeleteContact={this.removeContact}
+          onNavigate={() => {
+            // When Add Contacts is clicked
+            this.setState(() => ({
+              // screen is updated to create
+              screen: 'create'
+            }))
+          }}/>
+        )}
+        { // Display CreateContent Page
+        this.state.screen === 'create' && (
+          <CreateContact />
+        )}
       </div>
     )
   }
