@@ -10,3 +10,5 @@ create-react-app
 prop-types
 escape-string-regexp
 sort-by
+react-router-dom
+form-serialize
