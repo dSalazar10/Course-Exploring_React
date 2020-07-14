@@ -27,3 +27,17 @@ The React apps use the following modules:
   - create-react-native
   - expo-cli
   
+
+  3) Open Android Studio from cli:
+
+  `~/android-studio/bin/studio.sh`
+
+  4) This repo uses expo. To install expo-cli:
+
+  `sudo npm install --global expo-cli`
+
+  5) To build the apps run:
+
+  - iOS: `exp build:ios`
+
+  - Android: `exp build:android`
